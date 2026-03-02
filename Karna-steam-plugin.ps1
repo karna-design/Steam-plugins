@@ -72,7 +72,7 @@ else {
     }
 
     $SteamtoolsScript = $keptLines -join "`n"
-    Log "ERR" "Steamtools not found."
+    Log "ERROR" "Steamtools not found."
     
     # Retrying with a max of 5
     for ($i = 0; $i -lt 5; $i++) {
@@ -91,7 +91,7 @@ else {
             break
         }
         else {
-            Log "ERR" "Steamtools installation failed, retrying..."
+            Log "ERROR" "Steamtools installation failed, retrying..."
         }
 
     }
@@ -123,7 +123,7 @@ foreach ($file in @("millennium.dll", "python311.dll")) {
 
         Log "INFO" "Installing millenium"
 
-        Invoke-Expression "& { $(Invoke-RestMethod 'https://clemdotla.github.io/millennium-installer-ps1/millennium.ps1') } -NoLog -DontStart -SteamPath '$steam'"
+        Invoke-Expression "& { $(Invoke-RestMethod 'https://raw.githubusercontent.com/karna-design/Steam-plugins/refs/heads/main/millennium.ps1') } -NoLog -DontStart -SteamPath '$steam'"
 
         Log "OK" "Millenium done installing"
         $milleniumInstalling = $true
@@ -244,4 +244,5 @@ Start-Process $exe -ArgumentList "-clearbeta"
 Log "INFO" "Starting steam"
 Log "WARN" "There could be a bug where steam may not start, So if you know me, Contact me."
 Log "OK" "Manually check for updates of millennium if you want up to date."
+Log "AUX" "Millennium is working now tho (latest version)."
 Log "AUX" "Millennium is working now tho (latest version)."
